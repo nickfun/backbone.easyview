@@ -1,0 +1,39 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+	<title>Backbone EasyView Demo!</title>
+	<script src="http://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"></script>
+	<script src="http://documentcloud.github.com/underscore/underscore-min.js"></script>
+	<script src="http://documentcloud.github.com/backbone/backbone-min.js"></script>
+	<script src="bb.easyview.js"></script>
+</head>
+<body>
+	<script type="text/template" id="tpl-user">
+	<div class="user">
+		<h3><%= name %></h3>
+		<ul>
+			<li>You have <%= posts %> posts</li>
+			<li>You registered on <%= regDate %></li>
+		</ul>
+	</div>
+	</script>
+
+	<div id="content"></div>
+
+	<script>
+	var myModel = new Backbone.Model({
+		name: 'Nick Funnell',
+		regDate: '2013-03-05',
+		posts: 4
+	});
+
+	var myView = new Backbone.EasyView({
+		el: '#content',
+		template: '#tpl-user',
+		model: myModel
+	});
+
+	myView.render();
+	</script>
+</body>
+</html>
